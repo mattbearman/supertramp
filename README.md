@@ -1,10 +1,12 @@
-# 🔤 Supertramp
+# ![](examples/st.svg) Supertramp
 
  > But please, tell me who I am
  >
  > _- Supertramp, The Logical Song_
 
-Creates SVG letter avatars on the fly with consistent colours. This means no images need to be created or stored, eliminating the need for an image manipulation library such as ImageMagick.
+Generate default avatars for your users, containing their initials, with a consistent background colour. Avatars are created as SVGs on the fly, with the background colour chosen based on the initials, meaning the background will stay the same through reloads.
+
+The avatars are returned as a string containing the SVG markup, that can be embedded directly into your HTML. This means no images need to be created or stored, eliminating the need for an image manipulation library such as ImageMagick.
 
 Extracted from [PresentDay](https://www.mypresentday.com), inspired by https://kukicola.io/posts/creating-google-like-letter-avatars-using-erb-generated-svgs/
 
@@ -26,25 +28,25 @@ avatar.to_s
 ```
 
 ### Arguments
-**name:** `string`
+**`name:`** _(string)_
 
 _Required unless `initials:` is specified_
 
 A name from which the initials will be extracted. Eg: `name: 'Super Tramp'` will create an avatar with the initials `ST`.
 
-**initials:** `string`
+**`initials:`** _(string)_
 
 _Required unless `name:` is specified_
 
 The initials to be displayed in the avatar. Eg: `initials: 'ST'` will create an avatar with the initials `ST`.
 
-**background:** `string`
+**`background:`** _(string)_
 
 _Optional_
 
 Tha background colour for the avatar. If a background is specified it will take priority over the default background colour selection.
 
-The `background` argument can be any valid CSS colour string (eg: 'red', '#ff0000', 'rgba(127, 0, 0, 0.5)'), and does not have to be one of the colours in the configured `colours` array.
+The `background` argument can be any valid SVG colour string (eg: 'red', '#ff0000', 'rgba(127, 0, 0, 0.5)'), and does not have to be one of the colours in the configured `colours` array.
 
 ### Examples
 
