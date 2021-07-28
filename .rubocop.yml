@@ -1,0 +1,17 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: no_space
+
+Metrics/BlockLength:
+  IgnoredMethods:
+    - describe
+
+Style/ClassVars:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
