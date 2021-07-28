@@ -4,7 +4,7 @@ require 'erb'
 
 class Supertramp
   class Avatar
-    TEMPLATE = 'avatar.svg.erb'
+    TEMPLATE = '../templates/avatar.svg.erb'
 
     def initialize(initials:, background:)
       @initials = initials

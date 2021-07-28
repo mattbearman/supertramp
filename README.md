@@ -44,7 +44,7 @@ _Optional_
 
 Tha background colour for the avatar. If a background is specified it will take priority over the default background colour selection.
 
-The `background` argument can be any valid CSS colour string (eg: 'red', '#ff0000'), and does not have to be one of the colours in the configured `colours` array.
+The `background` argument can be any valid CSS colour string (eg: 'red', '#ff0000', 'rgba(127, 0, 0, 0.5)'), and does not have to be one of the colours in the configured `colours` array.
 
 ### Examples
 
