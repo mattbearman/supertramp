@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'spec_helper'
+
 RSpec.describe Supertramp do
   before do
     allow(Supertramp::Avatar).to receive(:new).and_call_original
