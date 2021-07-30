@@ -1,4 +1,4 @@
-# ![](examples/st.svg) Supertramp
+# 🔤 Supertramp
 
  > But please, tell me who I am
  >
@@ -48,20 +48,34 @@ Tha background colour for the avatar. If a background is specified it will take 
 
 The `background` argument can be any valid SVG colour string (eg: 'red', '#ff0000', 'rgba(127, 0, 0, 0.5)'), and does not have to be one of the colours in the configured `colours` array.
 
+**`shape:`** _(string)_
+
+_Optional, default = "square"_
+
+The shape of the avatar, can be one of **"square"**, **"circle"**, or **"rounded"** (a rounded rectangle). To avoid typos you should specify this using the constants defined in the `Supertramp::Avatar` class:
+ - `Supertramp::Avatar::SQUARE`
+ - `Supertramp::Avatar::CIRCLE`
+ - `Supertramp::Avatar::ROUNDED`
+
+You can also specify this globally using the `shape` config attribute. This defaults to **"square"**.
+
 ### Examples
 
 ```ruby
-Supertramp.new(initials: 'mb').to_s
-```
-![](examples/mb.svg)
-
-```ruby
+# Extracting initials from a name, default shape and colour choice
 Supertramp.new(name: 'Super Tramp').to_s
 ```
 ![](examples/st.svg)
 
 ```ruby
-Supertramp.new(name: 'custom colour', color: 'rgba(127, 0, 0, 0.5)').to_s
+# Specifying initials and shape, default colour choice
+Supertramp.new(initials: 'mb', shape: 'circle').to_s
+```
+![](examples/mb.svg)
+
+```ruby
+# Extracting initials, specifying custom colour, specifying shape as a constant
+Supertramp.new(name: 'custom colour', color: 'rgba(127, 0, 0, 0.5)', shape: Supertramp::Avatar::ROUNDED).to_s
 ```
 ![](examples/cc.svg)
 
@@ -88,6 +102,9 @@ Supertramp.configure do |config|
   # Note: This also affects initials that have been extracted from the name parameter
   # Default: true
   config.uppercase = false
+
+  # The shape of the avatars, see the `shape:` argument for more details
+  config.shape = Supertramp::Avatar::CIRCLE
 end
 ```
 
@@ -95,13 +112,13 @@ end
 
 Things I'd like to add next, somewhat prioritised:
 
- - Alternative shapes (circle and rounded rectangle)
- - Custom random seed (eg user_id)
- - base64 output for use with `data:` URLs
- - Dark text when a light background is specified
- - Caching
- - Full font customisation
- - Custom SVG templates
+ - [x] Alternative shapes (circle and rounded rectangle)
+ - [ ] Custom random seed (eg user_id)
+ - [ ] base64 output for use with `data:` URLs
+ - [ ] Dark text when a light background is specified
+ - [ ] Caching
+ - [ ] Full font customisation
+ - [ ] Custom SVG templates
 
 ## Contributing
 

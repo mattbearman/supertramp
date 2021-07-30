@@ -6,16 +6,17 @@ require_relative 'supertramp/avatar'
 class Supertramp
   @@config = Config.new
 
-  def initialize(initials: nil, name: nil, background: nil)
+  def initialize(initials: nil, name: nil, background: nil, shape: nil)
     @initials = initials
     @name = name
     @background = background
+    @shape = shape
 
     validate_arguments
   end
 
   def to_s
-    Avatar.new(initials: initials, background: background).to_s
+    Avatar.new(initials: initials, background: background, shape: shape).to_s
   end
 
   def self.configure
@@ -28,6 +29,7 @@ class Supertramp
 
   def validate_arguments
     raise ArgumentError, 'either `initials:` or `name:` must be specified' unless @name || @initials
+    raise ArgumentError, "`shape:` must be one of #{Avatar::SHAPES}" unless Avatar::SHAPES.include?(shape)
   end
 
   def config
@@ -58,5 +60,9 @@ class Supertramp
 
   def initials_seed
     initials.downcase.chars.map(&:ord).sum
+  end
+
+  def shape
+    @shape ||= config.shape
   end
 end

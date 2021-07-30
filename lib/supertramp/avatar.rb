@@ -4,21 +4,37 @@ require 'erb'
 
 class Supertramp
   class Avatar
-    TEMPLATE = '../templates/avatar.svg.erb'
+    SHAPES = [
+      SQUARE = 'square',
+      CIRCLE = 'circle',
+      ROUNDED = 'rounded'
+    ]
 
-    def initialize(initials:, background:)
+    def initialize(initials:, background:, shape:)
       @initials = initials
       @background = background
+      @shape = shape
     end
 
     def to_s
-      ERB.new(template).result(binding)
+      bind_template('avatar')
+    end
+
+    def shape
+      bind_template("_#{@shape}")
     end
 
     private
+    def bind_template(file)
+      ERB.new(template(file)).result(binding)
+    end
 
-    def template
-      File.read(File.expand_path(TEMPLATE, File.dirname(__FILE__)))
+    def template(file)
+      File.read(template_path(file))
+    end
+
+    def template_path(file)
+      File.expand_path("../templates/#{file}.svg.erb", File.dirname(__FILE__))
     end
   end
 end
