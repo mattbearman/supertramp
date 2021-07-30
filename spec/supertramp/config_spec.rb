@@ -11,7 +11,7 @@ RSpec.describe Supertramp::Config do
     end
   end
 
-  describe 'colours default' do
+  describe 'colours' do
     subject { config.colours }
 
     context 'with the default value' do
@@ -24,6 +24,14 @@ RSpec.describe Supertramp::Config do
       end
 
       it { is_expected.to eq(%w[red green blue]) }
+    end
+  end
+
+  describe 'shape' do
+    context 'with the default value' do
+      subject { config.shape }
+
+      it { is_expected.to eq('square') }
     end
   end
 end

@@ -8,7 +8,7 @@ RSpec.describe Supertramp do
   describe '#to_s' do
     it 'creates an instance of Avatar and calls its to_s method' do
       expect(described_class.new(initials: 'st').to_s)
-        .to eq(Supertramp::Avatar.new(initials: 'ST', background: '#1D4ED8').to_s)
+        .to eq(Supertramp::Avatar.new(initials: 'ST', background: '#1D4ED8', shape: 'square').to_s)
     end
   end
 
@@ -87,6 +87,26 @@ RSpec.describe Supertramp do
     context 'without initials or names' do
       it 'raises error' do
         expect { described_class.new }.to raise_error(ArgumentError, 'either `initials:` or `name:` must be specified')
+      end
+    end
+
+    context 'when shape argument is invlalid' do
+      it 'raises error' do
+        expect { described_class.new(initials: 'ST', shape: 'star') }
+          .to raise_error(ArgumentError, '`shape:` must be one of ["square", "circle", "rounded"]')
+      end
+    end
+
+    context 'when shape config is invlalid' do
+      before do
+        described_class.configure do |config|
+          config.shape = 'pentagram'
+        end
+      end
+
+      it 'raises error' do
+        expect { described_class.new(initials: 'ST') }
+          .to raise_error(ArgumentError, '`shape:` must be one of ["square", "circle", "rounded"]')
       end
     end
   end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Supertramp (0.5.1)
+    Supertramp (0.6.0)
 
 GEM
   remote: https://rubygems.org/
