@@ -24,6 +24,12 @@ class Supertramp
       bind_template("_#{@shape}")
     end
 
+    # Scale the text size proportinaly based on the number of initials
+    # to ensure they all fit, with a max size of 26
+    def text_size
+      [(51.0 / @initials.chars.count).ceil, 26].min
+    end
+
     private
 
     def bind_template(file)

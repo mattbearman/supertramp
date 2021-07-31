@@ -20,4 +20,9 @@ _2021-07-30_
 ## v0.6.1
 _2021-07-31_
 
-- Fix missing templates in gem bundle.
+- Fix missing templates in gem bundle
+## v0.7.0
+_2021-07-31_
+
+- README updates
+- Add support for more than two initials

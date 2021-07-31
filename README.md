@@ -85,6 +85,12 @@ Supertramp.new(initials: 'Z').to_s
 ![](examples/z.svg)
 
 ```ruby
+# Three initials
+Supertramp.new(name: 'Maynard James Keenan').to_s
+```
+![](examples/tool.svg)
+
+```ruby
 # Extracting initials, specifying custom colour, specifying shape as a constant
 Supertramp.new(name: 'custom colour', color: 'rgba(127, 0, 0, 0.8)', shape: Supertramp::Avatar::ROUNDED).to_s
 ```
@@ -97,6 +103,8 @@ Supertramp.new(name: 'custom colour', color: 'rgba(127, 0, 0, 0.8)', shape: Supe
 Outputs an SVG of a square with initials in the center. Initials can either be passed in as `initials`, or extracted from the `name` argument.
 
 Background colour is chosen using a seeded random based on the initials, so the colour won't change on reload unless the initials also change.
+
+Text size will be dynamically adjusted to ensure they fit within the shape. There's no limit to how many initials an avatar can have, although three is probably the best maximum.
 
 ## Configuration
 
@@ -124,7 +132,7 @@ end
 Things I'd like to add next, somewhat prioritised:
 
  - [x] Alternative shapes (circle and rounded rectangle)
- - [ ] Support for three or more initials (dynamic text sizing)
+ - [x] Support for three or more initials (dynamic text sizing)
  - [ ] Custom random seed (eg user_id)
  - [ ] base64 output for use with `data:` URLs
  - [ ] Dark text when a light background is specified
