@@ -3,7 +3,7 @@
 require_relative 'lib/supertramp/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'Supertramp'
+  spec.name          = 'supertramp'
   spec.version       = Supertramp::VERSION
   spec.authors       = ['Matt Bearman']
   spec.email         = ['matt@mattbearman.com']
@@ -18,5 +18,5 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri'] = "#{spec.homepage}/CHANGELOG.md"
 
-  spec.files = Dir['lib/**/*.rb']
+  spec.files = Dir['lib/**/*.rb', 'lib/**/*.erb']
 end

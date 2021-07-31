@@ -17,3 +17,7 @@ _2021-07-30_
 
 - README updates
 - Add circle and rounded shapes
+## v0.6.1
+_2021-07-31_
+
+- Fix missing templates in gem bundle.
