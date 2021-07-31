@@ -1,3 +1,5 @@
+
+[![Build](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml/badge.svg)](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml)
 # 🔤 Supertramp
 
  > But please, tell me who I am
@@ -25,22 +27,25 @@ avatar.to_s
 
 "#{avatar}"
 # => <?xml ... /svg>
+
+# When using in a Rails template, add raw to stop the SVG XML being escaped
+<%= raw avatar %>
 ```
 
 ### Arguments
-**`name:`** _(string)_
+#### `name:` _(string)_
 
 _Required unless `initials:` is specified_
 
 A name from which the initials will be extracted. Eg: `name: 'Super Tramp'` will create an avatar with the initials `ST`.
 
-**`initials:`** _(string)_
+#### `initials:` _(string)_
 
 _Required unless `name:` is specified_
 
 The initials to be displayed in the avatar. Eg: `initials: 'ST'` will create an avatar with the initials `ST`.
 
-**`background:`** _(string)_
+#### `background:` _(string)_
 
 _Optional_
 
@@ -48,7 +53,7 @@ Tha background colour for the avatar. If a background is specified it will take 
 
 The `background` argument can be any valid SVG colour string (eg: 'red', '#ff0000', 'rgba(127, 0, 0, 0.5)'), and does not have to be one of the colours in the configured `colours` array.
 
-**`shape:`** _(string)_
+#### `shape:` _(string)_
 
 _Optional, default = "square"_
 
@@ -74,8 +79,14 @@ Supertramp.new(initials: 'mb', shape: 'circle').to_s
 ![](examples/mb.svg)
 
 ```ruby
+# Single initial
+Supertramp.new(initials: 'Z').to_s
+```
+![](examples/z.svg)
+
+```ruby
 # Extracting initials, specifying custom colour, specifying shape as a constant
-Supertramp.new(name: 'custom colour', color: 'rgba(127, 0, 0, 0.5)', shape: Supertramp::Avatar::ROUNDED).to_s
+Supertramp.new(name: 'custom colour', color: 'rgba(127, 0, 0, 0.8)', shape: Supertramp::Avatar::ROUNDED).to_s
 ```
 ![](examples/cc.svg)
 
@@ -113,6 +124,7 @@ end
 Things I'd like to add next, somewhat prioritised:
 
  - [x] Alternative shapes (circle and rounded rectangle)
+ - [ ] Support for three or more initials (dynamic text sizing)
  - [ ] Custom random seed (eg user_id)
  - [ ] base64 output for use with `data:` URLs
  - [ ] Dark text when a light background is specified
