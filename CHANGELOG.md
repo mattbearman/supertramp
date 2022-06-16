@@ -26,3 +26,8 @@ _2021-07-31_
 
 - README updates
 - Add support for more than two initials
+## v0.8.0
+_2022-06-16_
+
+- README updates
+- Add base64 encoded data URL output

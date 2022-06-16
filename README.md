@@ -18,6 +18,8 @@ Extracted from [PresentDay](https://www.mypresentday.com), inspired by https://k
 
 ## Usage
 
+### String output
+
 ```ruby
 # Create an instance of Supertramp, and then read it as a string
 avatar = Supertramp.new(name: 'Matt Bearman')
@@ -28,8 +30,27 @@ avatar.to_s
 "#{avatar}"
 # => <?xml ... /svg>
 
+# .svg convenience method
+Supertramp.svg(name: 'Matt Bearman')
+# => <?xml ... /svg>
+
 # When using in a Rails template, add raw to stop the SVG XML being escaped
 <%= raw avatar %>
+```
+
+### Data URLs
+
+```ruby
+# To generate a data URL that can be used in image tags
+# Create an instance of Supertramp, and then call its data_url method
+avatar = Supertramp.new(name: 'Matt Bearman')
+
+avatar.data_url
+# => data:image/svg+xml;base64,PD94bWwgdmVyc2lv ... wv\ndGV4dD4KPC9zdmc+Cg==
+
+# .data_url convenience method
+Supertramp.data_url(name: 'Matt Bearman')
+# => data:image/svg+xml;base64,PD94bWwgdmVyc2lv ... wv\ndGV4dD4KPC9zdmc+Cg==
 ```
 
 ### Arguments
@@ -133,8 +154,8 @@ Things I'd like to add next, somewhat prioritised:
 
  - [x] Alternative shapes (circle and rounded rectangle)
  - [x] Support for three or more initials (dynamic text sizing)
+ - [x] base64 output for use with `data:` URLs
  - [ ] Custom random seed (eg user_id)
- - [ ] base64 output for use with `data:` URLs
  - [ ] Dark text when a light background is specified
  - [ ] Caching
  - [ ] Full font customisation

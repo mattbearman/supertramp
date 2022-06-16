@@ -9,7 +9,6 @@ Gem::Specification.new do |spec|
   spec.email         = ['matt@mattbearman.com']
 
   spec.summary       = 'Creates SVG letter avatars on the fly with consistent colours.'
-  # spec.description   = %q{TODO: Write a longer description or delete this line.}
   spec.homepage      = 'https://github.com/mattbearman/supertramp'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
