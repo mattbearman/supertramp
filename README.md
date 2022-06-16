@@ -1,5 +1,5 @@
 
-[![Build](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml/badge.svg)](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml)
+[![Build](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml/badge.svg)](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml) [![Gem Version](https://badge.fury.io/rb/supertramp.svg)](https://badge.fury.io/rb/supertramp)
 # 🔤 Supertramp
 
  > But please, tell me who I am
