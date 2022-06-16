@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe Supertramp::Avatar do
-  describe '#to_s' do
+  describe '#svg' do
     context 'when shape is square' do
-      subject { described_class.new(initials: 'MB', background: 'very-very-very-dark-blue', shape: 'square').to_s }
+      subject { described_class.new(initials: 'MB', background: 'very-very-very-dark-blue', shape: 'square').svg }
 
       it { is_expected.to include('<rect') }
       it { is_expected.not_to match(/<rect.+rx="\d+".+ry="\d+"/) }
@@ -13,7 +13,7 @@ RSpec.describe Supertramp::Avatar do
     end
 
     context 'when shape is circle' do
-      subject { described_class.new(initials: 'a', background: '#00ffaa', shape: 'circle').to_s }
+      subject { described_class.new(initials: 'a', background: '#00ffaa', shape: 'circle').svg }
 
       it { is_expected.to include('<circle') }
       it { is_expected.to include('fill="#00ffaa"') }
@@ -22,13 +22,21 @@ RSpec.describe Supertramp::Avatar do
     end
 
     context 'when shape is rounded rectangle' do
-      subject { described_class.new(initials: 'xYz', background: 'rgb(255,127,63)', shape: 'rounded').to_s }
+      subject { described_class.new(initials: 'xYz', background: 'rgb(255,127,63)', shape: 'rounded').svg }
 
       it { is_expected.to match(/<rect.+rx="\d+".+ry="\d+"/) }
       it { is_expected.to include('fill="rgb(255,127,63)"') }
       it { is_expected.to match(%r{<text.+?xYz.+?</text>}m) }
       it { is_expected.to include('font-size="17"') }
     end
+  end
+
+  describe '#data_url' do
+    subject { avatar.data_url }
+
+    let(:avatar) { described_class.new(initials: 'MB', background: 'very-very-very-dark-blue', shape: 'square') }
+
+    it { is_expected.to eq("data:image/svg+xml;base64,#{Base64.encode64(avatar.svg)}") }
   end
 
   describe '#text_size' do

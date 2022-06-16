@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'erb'
+require 'base64'
 
 class Supertramp
   class Avatar
@@ -16,7 +17,11 @@ class Supertramp
       @shape = shape
     end
 
-    def to_s
+    def data_url
+      "data:image/svg+xml;base64,#{Base64.encode64(svg)}"
+    end
+
+    def svg
       bind_template('avatar')
     end
 

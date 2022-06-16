@@ -16,7 +16,19 @@ class Supertramp
   end
 
   def to_s
-    Avatar.new(initials: initials, background: background, shape: shape).to_s
+    avatar.svg
+  end
+
+  def data_url
+    avatar.data_url
+  end
+
+  def self.svg(**options)
+    new(options).to_s
+  end
+
+  def self.data_url(**options)
+    new(options).data_url
   end
 
   def self.configure
@@ -26,6 +38,10 @@ class Supertramp
   private
 
   attr_accessor :name
+
+  def avatar
+    @avatar ||= Avatar.new(initials: initials, background: background, shape: shape)
+  end
 
   def validate_arguments
     raise ArgumentError, 'either `initials:` or `name:` must be specified' unless @name || @initials
