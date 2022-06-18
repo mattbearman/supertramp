@@ -24,11 +24,11 @@ class Supertramp
   end
 
   def self.svg(**options)
-    new(options).to_s
+    new(**options).to_s
   end
 
   def self.data_url(**options)
-    new(options).data_url
+    new(**options).data_url
   end
 
   def self.configure
