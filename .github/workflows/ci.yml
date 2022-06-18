@@ -10,12 +10,16 @@ jobs:
   lint-and-test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        ruby-version: ['2.6', '3.0']
+
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: ${{ matrix.ruby-version }}
       - name: Install dependencies
         run: bundle install
       - name: Rubocop

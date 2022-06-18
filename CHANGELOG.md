@@ -31,3 +31,7 @@ _2022-06-16_
 
 - README updates
 - Add base64 encoded data URL output
+## v0.8.1
+_2022-06-18_
+
+- Fix wrapper methods in Ruby 3
