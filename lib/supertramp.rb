@@ -3,6 +3,9 @@
 require_relative 'supertramp/config'
 require_relative 'supertramp/avatar'
 
+warn '[DEPRECIATION WARNING] Supertramp has been renamed to Monogram and will no longer be supported. ' \
+     'Please switch to Monogram as soon as possible. https://github.com/mattbearman/monogram'
+
 class Supertramp
   @@config = Config.new
 

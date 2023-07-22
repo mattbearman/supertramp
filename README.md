@@ -2,9 +2,12 @@
 [![Build](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml/badge.svg)](https://github.com/mattbearman/supertramp/actions/workflows/ci.yml) [![Gem Version](https://badge.fury.io/rb/supertramp.svg)](https://badge.fury.io/rb/supertramp)
 # 🔤 Supertramp
 
- > But please, tell me who I am
- >
- > _- Supertramp, The Logical Song_
+> But please, tell me who I am
+>
+> _- Supertramp, The Logical Song_
+
+> [!WARNING]\
+> This gem has been renamed to [Monogram](https://github.com/mattbearman/monogram). As such Supertramp will no longer be supported. Please switch to Monogram as soon as possible.
 
 Generate default avatars for your users, containing their initials, with a consistent background colour. Avatars are created as SVGs on the fly, with the background colour chosen based on the initials, meaning the background will stay the same through reloads.
 
